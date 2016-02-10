@@ -1,2 +1,2 @@
 # powershell
-A set of PowerShell resources that we (Nathan and defsah) find to be useful
+A set of PowerShell resources that we (t04glovern and defsah) find to be useful
