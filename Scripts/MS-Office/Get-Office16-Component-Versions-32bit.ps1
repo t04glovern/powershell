@@ -16,6 +16,9 @@
 # I have updated it for Microsoft Office 2016 32bit
 # Office location and version will be different for 64bit
 
+# Suppress errors for missing components
+$ErrorActionPreference = "SilentlyContinue"
+
 #-file Locations-----------------------------------------------------
 
 #Ms Word
@@ -39,6 +42,9 @@ $onenotePath = 'C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EX
 #Ms Visio
 $visioPath = 'C:\Program Files (x86)\Microsoft Office\root\Office16\VISIO.EXE'
 
+#Ms Access
+$accessPath = 'C:\Program Files (x86)\Microsoft Office\root\Office16\MSACCESS.EXE'
+
 #-File Properties----------------------------------------------------
 
 #word
@@ -61,6 +67,9 @@ $onenoteProperty = Get-ItemProperty $onenotePath
 
 #powerpoint
 $visioProperty = Get-ItemProperty $visioPath
+
+#access
+$accessProperty = Get-ItemProperty $accessPath
 
 #-Print Them---------------------------------------------------------
 
@@ -94,6 +103,10 @@ $myObject | Add-Member NoteProperty -Name "OneNote File Version" -Value  $onenot
 #Visio
 $myObject | Add-Member NoteProperty -Name "Visio Product Version" -Value  $visioProperty.VersionInfo.ProductVersion
 $myObject | Add-Member NoteProperty -Name "Visio File Version" -Value  $visioProperty.VersionInfo.FileVersion
+
+#Access
+$myObject | Add-Member NoteProperty -Name "Access Product Version" -Value  $accessProperty.VersionInfo.ProductVersion
+$myObject | Add-Member NoteProperty -Name "Access File Version" -Value  $accessProperty.VersionInfo.FileVersion
 
 # Publishing Product informations.
 $myObject
